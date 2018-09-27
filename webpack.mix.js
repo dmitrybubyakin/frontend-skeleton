@@ -9,6 +9,7 @@ require('laravel-mix-purgecss')
 mix
     .js('resources/js/app.js', 'public/js')
     .sass('resources/scss/app.scss', 'public/css')
+    .copy('resources/img', 'public/img')
     .options({
         publicPath: 'public',
         processCssUrls: false,
