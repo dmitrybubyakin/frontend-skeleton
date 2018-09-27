@@ -4,12 +4,10 @@ const tailwindcss = require('tailwindcss')
 const FileInclude = require('./mix/tasks/FileInclude')
 
 require('./mix/components/Task')
+require('./mix/components/ImageMin')
 require('laravel-mix-purgecss')
 
 mix
-    .js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/app.scss', 'public/css')
-    .copy('resources/img', 'public/img')
     .options({
         publicPath: 'public',
         processCssUrls: false,
@@ -20,6 +18,11 @@ mix
             port: process.env.MIX_HMR_PORT || 8080
         }
     })
+
+mix
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/scss/app.scss', 'public/css')
+    .imageMin('resources/img', 'public/img')
     .task(new FileInclude({
         src: ['resources/template/**/*.html', '!resources/template/includes/**/*.html'],
         dest: 'public/template',
