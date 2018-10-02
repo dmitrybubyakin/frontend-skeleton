@@ -21,7 +21,7 @@ class ImageMin {
 
     register(from, to, options = {}) {
         this.from = from
-        this.to = this.normalizeOutput(to)
+        this.to = to
 
         this.options = Object.assign({
             enabled: mix.inProduction(),
@@ -34,10 +34,6 @@ class ImageMin {
             },
             imageminSvgo: {},
         }, options)
-    }
-
-    normalizeOutput(output) {
-        return output.replace(mix.config.publicPath + path.sep, '')
     }
 
     webpackConfig(config) {

@@ -22,7 +22,7 @@ mix
 mix
     .js('resources/js/app.js', 'public/js')
     .sass('resources/scss/app.scss', 'public/css')
-    .imageMin('resources/img', 'public/img')
+    .imageMin('resources/img', 'img')
     .task(new FileInclude({
         src: ['resources/template/**/*.html', '!resources/template/includes/**/*.html'],
         dest: 'public/template',
