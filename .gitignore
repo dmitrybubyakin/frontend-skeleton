@@ -12,3 +12,11 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+/public/sitemap.xml
+/public/css
+/public/fonts
+/public/img
+/public/svg
+/public/js
+/public/template
+/public/mix-manifest.json
