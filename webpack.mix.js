@@ -30,7 +30,15 @@ mix
             basepath: 'resources/template/includes',
         }
     }))
-    .browserSync({
+    .purgeCss()
+    .extract([
+        'jquery',
+        'axios',
+        'vue',
+    ])
+
+if (process.env.MIX_BS_ENABLED !== 'false') {
+    mix.browserSync({
         proxy: process.env.MIX_BS_PROXY || process.env.APP_URL || '127.0.0.1:8080/template',
         port: process.env.MIX_BS_PORT || 3000,
         files: [
@@ -41,12 +49,7 @@ mix
             'public/css/**/*.css',
         ]
     })
-    .purgeCss()
-    .extract([
-        'jquery',
-        'axios',
-        'vue',
-    ])
+}
 
 if (mix.inProduction()) {
     mix.version()
