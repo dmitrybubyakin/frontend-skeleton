@@ -37,14 +37,13 @@ class ImageMin {
     }
 
     webpackConfig(config) {
+        config.plugins.push(this.createCopyWebpackPlugin())
+
         if (!this.options.enabled) {
             return
         }
 
-        config.plugins.push(...[
-            this.createCopyWebpackPlugin(),
-            this.createImageminPlugin()
-        ])
+        config.plugins.push(this.createImageminPlugin())
     }
 
     createCopyWebpackPlugin() {
